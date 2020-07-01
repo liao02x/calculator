@@ -1,0 +1,142 @@
+$button-radius: 80px;
+
+.calculator {
+  width: 320px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: -10px -10px 20px -10px rgba(255, 255, 255, 1),
+    10px 10px 20px -10px rgba(0, 0, 0, 0.2);
+
+  * {
+    outline: none;
+    user-select: none;
+    font-family: "Roboto Mono", monospace;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: -5px -5px 10px -5px rgba(255, 255, 255, 0.9) inset,
+      5px 5px 10px -5px rgba(0, 0, 0, 0.1) inset;
+  }
+  &__body {
+    display: grid;
+    grid-template-areas:
+      "ac divide times backspace"
+      "number-7 number-8 number-9 minus"
+      "number-4 number-5 number-6 plus"
+      "number-1 number-2 number-3 equal"
+      "percent number-0 dot equal";
+    grid-template-columns: repeat(4, $button-radius);
+    grid-template-rows: repeat(5, $button-radius);
+    button {
+      margin: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: calc(#{$button-radius} / 2);
+      font-size: 24px;
+      color: #aaa;
+      background: linear-gradient(
+        to bottom right,
+        rgba(231, 231, 231, 1) 0%,
+        rgba(247, 247, 247, 1) 100%
+      );
+      box-shadow: -5px -5px 10px -10px rgba(255, 255, 255, 1),
+        5px 5px 10px -10px rgba(0, 0, 0, 0.3);
+    }
+    button:active {
+      box-shadow: -5px -5px 10px -10px rgba(255, 255, 255, 1) inset,
+        5px 5px 10px -10px rgba(0, 0, 0, 0.3) inset;
+    }
+  }
+}
+
+.button {
+  &--ac {
+    grid-area: ac;
+  }
+  &--divide {
+    grid-area: divide;
+  }
+  &--times {
+    grid-area: times;
+  }
+  &--backspace {
+    grid-area: backspace;
+  }
+  &--minus {
+    grid-area: minus;
+  }
+  &--plus {
+    grid-area: plus;
+  }
+  &--equal {
+    grid-area: equal;
+  }
+  &--percent {
+    grid-area: percent;
+  }
+  &--dot {
+    grid-area: dot;
+  }
+  &--number {
+    &--0 {
+      grid-area: number-0;
+    }
+    &--1 {
+      grid-area: number-1;
+    }
+    &--2 {
+      grid-area: number-2;
+    }
+    &--3 {
+      grid-area: number-3;
+    }
+    &--4 {
+      grid-area: number-4;
+    }
+    &--5 {
+      grid-area: number-5;
+    }
+    &--6 {
+      grid-area: number-6;
+    }
+    &--7 {
+      grid-area: number-7;
+    }
+    &--8 {
+      grid-area: number-8;
+    }
+    &--9 {
+      grid-area: number-9;
+    }
+  }
+}
+
+.expression {
+  text-align: right;
+  color: #777;
+  height: 60px;
+  font-size: 40px;
+}
+
+.result {
+  text-align: right;
+  color: #999;
+  height: 30px;
+  font-size: 20px;
+  padding-right: 10px;
+}
