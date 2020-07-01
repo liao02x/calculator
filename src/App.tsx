@@ -54,6 +54,7 @@ function App() {
       .replace(/÷/gi, "/")
       .replace(/%/gi, "*0.01");
     try {
+      // eslint-disable-next-line
       const ifexp = eval(exp);
       setResult(ifexp.toString());
     } catch {}
